@@ -10,5 +10,4 @@ class BookService extends CommonService
     {
         parent::__construct($repository);
     }
-    
 }

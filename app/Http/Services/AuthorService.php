@@ -10,6 +10,6 @@ class AuthorService extends CommonService
     {
         parent::__construct($repository);
     }
-    
+
     // Author-specific business logic goes here.
 }

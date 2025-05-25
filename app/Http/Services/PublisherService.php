@@ -10,6 +10,6 @@ class PublisherService extends CommonService
     {
         parent::__construct($repository);
     }
-    
+
     // Publisher-specific business logic goes here.
 }
