@@ -57,3 +57,12 @@ This structure ensures:
 - **Separation of concerns** (each layer has a specific role).
 - **Modular & maintainable architecture** (easy to update and scale).
 - **SOLID principles** (controllers don’t directly interact with the database).
+
+### Helpful Blogs
+
+1. [Structuring a Laravel Project with the Repository Pattern and Services - dev.to](https://dev.to/blamsa0mine/structuring-a-laravel-project-with-the-repository-pattern-and-services-11pm)
+
+2. [Laravel 9 Repository Design Pattern CRUD Example - LaraInfo](https://larainfo.com/blogs/laravel-9-repository-design-pattern-crud-example/)
+
+3. [Laravel Repository Pattern - Medium (Soulaimane YH)](https://medium.com/@soulaimaneyh/laravel-repository-pattern-da4e1e3efc01)
+
