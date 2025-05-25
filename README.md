@@ -14,6 +14,33 @@ This project follows the **Repository Design Pattern** while adhering to the **S
 
 5. **Dependency Inversion Principle (DIP)** – Services depend on abstract repositories rather than concrete Eloquent models, enhancing flexibility.
 
+### Laravel Project Structure (Markwork Style)
+
+```plaintext
+app/
+ ├─ Http/
+ │   ├─ Controllers/
+ │   │   ├─ CommonController.php
+ │   │   ├─ BookController.php
+ │   │   ├─ AuthorController.php
+ │   │   └─ PublisherController.php
+ │   └─ Services/
+ │       ├─ CommonService.php
+ │       ├─ BookService.php
+ │       ├─ AuthorService.php
+ │       └─ PublisherService.php
+ ├─ Models/
+ │   ├─ Book.php
+ │   ├─ Author.php
+ │   └─ Publisher.php
+ ├─ Repositories/
+ │   ├─ CommonRepository.php
+ │   ├─ BookRepository.php
+ │   ├─ AuthorRepository.php
+ │   └─ PublisherRepository.php
+ └─ Traits/
+     └─ ValidatesData.php
+
 
 Here's a high-level flow map of how requests move through project:
 
@@ -65,33 +92,3 @@ This structure ensures:
 2. [Laravel 9 Repository Design Pattern CRUD Example - LaraInfo](https://larainfo.com/blogs/laravel-9-repository-design-pattern-crud-example/)
 
 3. [Laravel Repository Pattern - Medium (Soulaimane YH)](https://medium.com/@soulaimaneyh/laravel-repository-pattern-da4e1e3efc01)
-
-
-
-### Laravel Project Structure (Markwork Style)
-
-```plaintext
-app/
- ├─ Http/
- │   ├─ Controllers/
- │   │   ├─ CommonController.php
- │   │   ├─ BookController.php
- │   │   ├─ AuthorController.php
- │   │   └─ PublisherController.php
- │   └─ Services/
- │       ├─ CommonService.php
- │       ├─ BookService.php
- │       ├─ AuthorService.php
- │       └─ PublisherService.php
- ├─ Models/
- │   ├─ Book.php
- │   ├─ Author.php
- │   └─ Publisher.php
- ├─ Repositories/
- │   ├─ CommonRepository.php
- │   ├─ BookRepository.php
- │   ├─ AuthorRepository.php
- │   └─ PublisherRepository.php
- └─ Traits/
-     └─ ValidatesData.php
-
