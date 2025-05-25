@@ -40,6 +40,7 @@ app/
  │   └─ PublisherRepository.php
  └─ Traits/
      └─ ValidatesData.php
+```
 
 
 Here's a high-level flow map of how requests move through project:
