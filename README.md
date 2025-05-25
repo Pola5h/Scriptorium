@@ -66,3 +66,32 @@ This structure ensures:
 
 3. [Laravel Repository Pattern - Medium (Soulaimane YH)](https://medium.com/@soulaimaneyh/laravel-repository-pattern-da4e1e3efc01)
 
+
+
+### Laravel Project Structure (Markwork Style)
+
+```plaintext
+app/
+ ├─ Http/
+ │   ├─ Controllers/
+ │   │   ├─ CommonController.php
+ │   │   ├─ BookController.php
+ │   │   ├─ AuthorController.php
+ │   │   └─ PublisherController.php
+ │   └─ Services/
+ │       ├─ CommonService.php
+ │       ├─ BookService.php
+ │       ├─ AuthorService.php
+ │       └─ PublisherService.php
+ ├─ Models/
+ │   ├─ Book.php
+ │   ├─ Author.php
+ │   └─ Publisher.php
+ ├─ Repositories/
+ │   ├─ CommonRepository.php
+ │   ├─ BookRepository.php
+ │   ├─ AuthorRepository.php
+ │   └─ PublisherRepository.php
+ └─ Traits/
+     └─ ValidatesData.php
+
