@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Book extends Model
+class Book extends BaseModel
 {
     // The fields that are mass assignable.
     protected $fillable = ['title', 'author_id', 'publisher_id'];

@@ -21,7 +21,7 @@ abstract class CommonController extends Controller
      */
     abstract public function getRules(bool $isUpdate = false): array;
 
-    public function index(Request $request): JsonResponse
+    protected function index(Request $request): JsonResponse
     {
         $filters = $request->all();
         $data = $this->service->getList($filters);
@@ -29,7 +29,7 @@ abstract class CommonController extends Controller
         return response()->json($data);
     }
 
-    public function show($id): JsonResponse
+    protected function show($id): JsonResponse
     {
         try {
             $model = $this->service->findByID($id);
@@ -40,7 +40,7 @@ abstract class CommonController extends Controller
         }
     }
 
-    public function store(Request $request): JsonResponse
+    protected function store(Request $request): JsonResponse
     {
         try {
             // Validate incoming data using the controller's rules.
@@ -55,7 +55,7 @@ abstract class CommonController extends Controller
         }
     }
 
-    public function update(Request $request, $id): JsonResponse
+    protected function update(Request $request, $id): JsonResponse
     {
         try {
             $validatedData = $this->validateData($request->all(), $this->getRules(true));
@@ -69,7 +69,7 @@ abstract class CommonController extends Controller
         }
     }
 
-    public function destroy($id): JsonResponse
+    protected function destroy($id): JsonResponse
     {
         try {
             $deleted = $this->service->delete($id);

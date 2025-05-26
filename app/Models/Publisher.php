@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Publisher extends Model
+class Publisher extends BaseModel
 {
     protected $fillable = ['name'];
 
