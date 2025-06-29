@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 
 abstract class CommonRepository
@@ -21,7 +22,7 @@ abstract class CommonRepository
         }
     }
 
-    protected function getQueryBuilder(array $filters = [])
+    public function getQueryBuilder(array $filters = [])
     {
         $query = $this->modelClass::query();
 
@@ -122,5 +123,56 @@ abstract class CommonRepository
         if (! class_exists($modelClass) || ! is_subclass_of($modelClass, Model::class)) {
             throw new InvalidArgumentException("{$modelClass} is not a valid Eloquent model.");
         }
+    }
+
+    /**
+     * Count all records in the model's table.
+     * @return int
+     */
+    public function countAll(): int
+    {
+        return $this->modelClass::count();
+    }
+
+    /**
+     * Get the latest record from the model's table by column and optional filter.
+     * @param string $orderBy
+     * @param array $filters
+     * @param string $direction
+     * @return Model|null
+     */
+    public function getLatestRecord(string $orderBy = 'created_at', array $filters = [], string $direction = 'desc'): ?Model
+    {
+        $query = $this->getQueryBuilder($filters);
+        return $query->orderBy($orderBy, $direction)->first();
+    }
+
+    /**
+     * Find model by email address.
+     * @param string $email
+     * @return Model|null
+     */
+    public function findByEmail(string $email): ?Model
+    {
+        return $this->getFirstWhere(['email' => $email]);
+    }
+
+    /**
+     * Get the latest record from any table by column and optional filter.
+     * @param string $table
+     * @param string $orderBy
+     * @param array $filters
+     * @param string $direction
+     * @return object|null
+     */
+    public function getLatestRecordFromTable(string $table, string $orderBy = 'created_at', array $filters = [], string $direction = 'desc'): ?object
+    {
+        $query = DB::table($table);
+
+        foreach ($filters as $key => $value) {
+            $query->where($key, $value);
+        }
+
+        return $query->orderBy($orderBy, $direction)->first();
     }
 }
